@@ -1,0 +1,50 @@
+@charset "ISO-8859-1";
+body {
+    background-image: linear-gradient(#ff9966, #ff5e62);
+}
+
+.register-form {
+    width: 300px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 0px #000000;
+}
+
+.form-control {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #cccccc;
+}
+
+.form-control:focus {
+    border-color: #3d3d3d;
+    box-shadow: 0px 0px 5px 0px #3d3d3d;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.submit-btn {
+    width: 100%;
+    background-color: #3d3d3d;
+    color: #ffffff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #1e1e1e;
+}
