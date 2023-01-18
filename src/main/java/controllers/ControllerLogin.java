@@ -19,9 +19,6 @@ public class ControllerLogin extends HttpServlet {
 	private DaoUser dao = new DaoUser();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		if(request.getRemoteAddr().contains("192")) {
-//			response.sendRedirect(");
-//		}
 		
 	
 		
