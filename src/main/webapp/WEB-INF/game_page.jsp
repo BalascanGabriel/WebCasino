@@ -4,11 +4,24 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+    <link rel="stylesheet" type="text/css" href="gamepage_style.css">
 <title>Insert title here</title>
 </head>
 <body>
 	<%@ include file="components/login_status.jsp" %>
-	<a href="/BlackjackWeb/LogoutController">Logout</a>
-	<h2>Select game mode</h2>
+	<div>
+		<a href="/BlackjackWeb/LogoutController">Logout</a>
+	</div>
+	
+	<div >
+		<form method="post">
+		<h1>Select a Game Mode</h1>
+			<input type="radio" name="mode" value="blackjack">BlackJack<br>
+			<input type="radio" name="mode" value="roulette">Roulette<br>
+			<input type="radio" name="mode" value="coinflip">Coinflip<br>
+			<input type="radio" name="mode" value="slots">Slots<br>
+			<input type="submit" value="Play">
+		</form>
+	</div>
 </body>
 </html>

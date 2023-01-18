@@ -7,9 +7,8 @@
     <link href="loginstyle.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-	<%!
-		DaoUser dao = new DaoUser();
-	%>
+	
+	
 	
 	<%
 	// TODO: vrem sa evitam la refresh aparitia mesajului astuia:
@@ -36,17 +35,7 @@
         </form>
     </div>
     
-    <%
-    	String username = request.getParameter("username");
-    	String password = request.getParameter("password");
-    	boolean isTrue = dao.checkLogin(username,password);
-    	//if(isTrue){
-   	
-    %>
-        
-    <%
-    	//}else
-    %>
+   
     
    
 </body>

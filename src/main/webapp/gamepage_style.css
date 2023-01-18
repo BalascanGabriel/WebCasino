@@ -1,0 +1,23 @@
+@charset "ISO-8859-1";
+
+.header{
+	float: left;
+	padding : 5px;
+	text-align: right;
+	border: 1px solid black;
+	display: flex;
+	
+}
+
+body {
+    background-image: linear-gradient(#ff9966, #ff5e62);
+}
+
+.div-form{
+	 background-color: blue; 
+  	height: 50px;
+  	width: 50px;
+  	font-size: 10px;
+  	text-align: center;
+  	border: 1px solid black;
+}
