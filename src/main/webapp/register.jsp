@@ -10,11 +10,11 @@
     <link href="registerstyle.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-	<%!
-		DaoUser dao = new DaoUser();
-	%>
+	 <div>
+    	<%= session.getAttribute("STATUS_LOGIN") %>
+    </div>
     <div class="register-form">
-        <form>
+        <form method="post">
             <div class="form-group">
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" class="form-control">
@@ -34,16 +34,7 @@
         </form>
     </div>
     
-    <%
-    	if(request.getParameter("username") != null){
-    		User user = new User();
-    		user.setName(request.getParameter("username"));
-    		user.setEmail(request.getParameter("email"));
-    		user.setPassword(request.getParameter("password"));
-    		dao.registerUser(user);
-    		
-    	}
-    %>
+    
     
 </body>
 </html>

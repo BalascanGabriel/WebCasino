@@ -12,12 +12,8 @@
 </head>
 <body>
 	<h2>Users</h2>
+	<%@ include file="components/login_status.jsp" %>
 	
-	
-	<%
-		String mesaj = (String) request.getAttribute("MESAJ");
-		out.println("MESAJUL DIN SERVLET ESTE: " + mesaj);
-	%>
 	
 	<%
 	
@@ -39,7 +35,7 @@
 				<%-- <a href="?userId=<%= u.getId() %>">Delete</a> --%>
 				<form method="post">
 					<input type="hidden" value="<%= u.getId() %>" name="userId">
-					<input type="submit">
+					<input type="submit" value="Delete">
 				</form> 
 				</td>
 				</tr>

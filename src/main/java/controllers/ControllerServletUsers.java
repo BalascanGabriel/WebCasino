@@ -25,12 +25,7 @@ public class ControllerServletUsers extends HttpServlet {
 	// se ocupa de SELECT => 0 consequences
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// response.getWriter().append("<html><head></head><body><h2>SALUT DIN
-		// SERVLET</h2></body></html>");
-
-		// procesare
-		// procesare
-		// procesare
+		
 		
 		List<User> userii = dao.testSelect();
 		if (request.getParameter("sort") != null) {

@@ -10,8 +10,18 @@
 	<%!
 		DaoUser dao = new DaoUser();
 	%>
+	
+	<%
+	// TODO: vrem sa evitam la refresh aparitia mesajului astuia:
+		if(request.getParameter("eroare") != null){
+			%>
+				<div style="color: red;">Login failed</div>
+			<%
+		}
+	%>
+	
     <div class="login-form">
-        <form>
+        <form method="post">
             <div class="form-group">
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" class="form-control">

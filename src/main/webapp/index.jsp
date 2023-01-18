@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -11,10 +12,13 @@
     <div id="header">
       <h1>Gabe Casino</h1>
       <div id="header-buttons">
-    	<button id="login-button" onclick="location.href='login.jsp'">Login</button>
-    	<button id="register-button" onclick="location.href='register.jsp'">Register</button>
+    	<button id="login-button" onclick="location.href='ControllerLogin'">Login</button>
+    	
+    	<button id="register-button" onclick="location.href='ControllerRegister'">Register</button>
   	  </div>
     </div>
+    
+ 	<%@ include file="/WEB-INF/components/login_status.jsp" %>
     <div id="main">
       <h2>Welcome to Gabe Casino!</h2>
       <p>We offer a wide range of games and promotions for our players.</p>
