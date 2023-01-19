@@ -1,23 +1,28 @@
-@charset "ISO-8859-1";
-
-.header{
-	float: left;
-	padding : 5px;
-	text-align: right;
-	border: 1px solid black;
-	display: flex;
-	
-}
-
-body {
+   /* Some CSS to style the page */
+    body {
     background-image: linear-gradient(#ff9966, #ff5e62);
-}
-
-.div-form{
-	 background-color: blue; 
-  	height: 50px;
-  	width: 50px;
-  	font-size: 10px;
-  	text-align: center;
-  	border: 1px solid black;
-}
+    }
+    h1 {
+      text-align: center;
+      margin-top: 50px;
+      font-size: 3em;
+    }
+    .game-options {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 50px;
+    }
+    .game-option {
+      background-color: #FFF;
+      border: 1px solid #CCC;
+      padding: 20px;
+      margin: 10px;
+      flex-basis: 300px;
+      text-align: center;
+      transition: background-color 0.2s ease;
+    }
+    .game-option:hover {
+      background-color: #EEE;
+      cursor: pointer;
+    }

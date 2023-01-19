@@ -36,7 +36,9 @@ public class ControllerLogin extends HttpServlet {
 			sesiunea.setAttribute("UTILIZATORUL", userGasit);
 			response.sendRedirect("/BlackjackWeb/ControllerGamePage");
 		}else {
+			HttpSession sesiunea = request.getSession(true);
 			System.out.println("LOGIN FAILED");
+			sesiunea.setAttribute("UTILIZATORUL", null);
 			response.sendRedirect("ControllerLogin?eroare=da"); // ?eroare=da
 		}
 		

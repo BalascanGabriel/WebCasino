@@ -10,7 +10,10 @@
 	
 	
 	
-	<%
+	
+    <div class="login-form">
+        <form method="post">
+        <%
 	// TODO: vrem sa evitam la refresh aparitia mesajului astuia:
 		if(request.getParameter("eroare") != null){
 			%>
@@ -18,9 +21,6 @@
 			<%
 		}
 	%>
-	
-    <div class="login-form">
-        <form method="post">
             <div class="form-group">
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" class="form-control">
