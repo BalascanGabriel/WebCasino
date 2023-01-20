@@ -1,7 +1,12 @@
    /* Some CSS to style the page */
     body {
     background-image: linear-gradient(#ff9966, #ff5e62);
+    background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	opacity: 0.5;
     }
+    
     h1 {
       text-align: center;
       margin-top: 50px;

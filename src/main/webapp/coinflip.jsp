@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link href="coinflip_style.css" rel="stylesheet" type="text/css">
     <title>Coin Flip</title>
     <style>
         #coin {
