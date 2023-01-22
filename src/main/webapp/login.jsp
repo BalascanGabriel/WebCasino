@@ -10,15 +10,15 @@
 	
 	
 	
-	
     <div class="login-form">
         <form method="post">
         <%
 	// TODO: vrem sa evitam la refresh aparitia mesajului astuia:
-		if(request.getParameter("eroare") != null){
+		if(session.getAttribute("LOGIN_STATUS") != null){
 			%>
 				<div style="color: red;">Login failed</div>
 			<%
+			session.setAttribute("LOGIN_STATUS", null);
 		}
 	%>
             <div class="form-group">

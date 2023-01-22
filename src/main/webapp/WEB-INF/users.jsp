@@ -66,6 +66,38 @@
 		
 	%>
 	
-	 <%@ include file="components/footer.jsp" %>
+	<table border="1">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>User id</th>
+				<th>Last login</th>
+				<th>Ip</th>
+			</tr>
+		</thead>
+		<tbody id="tbody-tabel-activity">
+		</tbody>
+	</table>
+	<button id="btn-load-activity">Load activity</button>
+	
+	<script>
+		document.getElementById('btn-load-activity').addEventListener('click', function(){
+			console.log('loading activity from server');
+			fetch('http://localhost:8080/BlackjackWeb/ControllerRestActivity')
+			.then(datele => datele.json())
+			.then(datele => {
+				console.log('de la server am luat: ', datele);
+				let corpTabel = document.getElementById("tbody-tabel-activity");
+				for(let act of datele){
+					corpTabel.innerHTML += '<tr><td>'+act.id+'</td><td>'+act.user_id+'</td><td>'+act.last_login+'</td><td>'+act.user_ip+'</td></tr>';
+				}
+			})
+			
+		})
+		
+		// tabelul sa fie afisat DOAR cand dam click prima oara pe buton
+		// ar trebui ca datele care vin la fiecare click pe buton sa inlocuiasca vechile date din 'vechiul' tabel
+		</script>
+	
 </body>
 </html>

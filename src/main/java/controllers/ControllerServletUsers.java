@@ -27,7 +27,7 @@ public class ControllerServletUsers extends HttpServlet {
 			throws ServletException, IOException {
 		
 		
-		List<User> userii = dao.testSelect();
+		List<User> userii = dao.findAll();
 		if (request.getParameter("sort") != null) {
 			if (request.getParameter("element").equals("id")) {
 				// am dat click pe link => ar trebui sa sortam userii dupa id desc
@@ -51,7 +51,7 @@ public class ControllerServletUsers extends HttpServlet {
 			// am dat click pe link-ul de delete
 			Integer userIdDinUrl = Integer.valueOf(request.getParameter("userId"));
 			System.out.println("PARAMETRU DIN URL PENTRU USER ID: " + userIdDinUrl);
-			 dao.deleteUser(userIdDinUrl);
+			 dao.delete(userIdDinUrl);
 			 response.sendRedirect("/BlackjackWeb/ControllerServletUsers");
 		}
 		
@@ -61,7 +61,7 @@ public class ControllerServletUsers extends HttpServlet {
 			user.setEmail(request.getParameter("new-useremail"));
 			user.setBalance(Integer.valueOf(request.getParameter("new-userbalance")));
 			user.setName(request.getParameter("new-username"));
-			dao.saveUser(user);
+			dao.save(user);
 			
 			response.sendRedirect("/BlackjackWeb/ControllerServletUsers");
 		}

@@ -11,7 +11,7 @@ import java.util.List;
 
 import model.User;
 
-public class DaoUser {
+public class DaoUser implements IDao<User>{
 
 	static {
 		// asta se executa cand DaoUser e loaded into memory JUST ONCE
@@ -58,7 +58,7 @@ public class DaoUser {
 		return userGasit;
 	}
 
-	public List<User> testSelect() {
+	public List<User> findAll() {
 
 		List<User> userii = new ArrayList<>();
 		try {
@@ -82,7 +82,7 @@ public class DaoUser {
 		return userii;
 	}
 
-	public void deleteUser(int id) {
+	public void delete(int id) {
 		try {
 			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/blackjack", "root", "1234");
 			Statement stmt = conn.createStatement();
@@ -92,7 +92,7 @@ public class DaoUser {
 		}
 	}
 
-	public void saveUser(User user) {
+	public void save(User user) {
 		// TODO: insert into...
 		try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/blackjack", "root", "1234");
 				PreparedStatement pst = con
@@ -142,7 +142,7 @@ public class DaoUser {
 		user.setPassword("password");
 		user.setBalance(300);
 		user.setName("Joe");
-		dao.saveUser(user);
+		dao.save(user);
 	}
 
 	// INSERT INTO users ...

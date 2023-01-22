@@ -27,7 +27,7 @@ public class ControllerServletOtherUsers extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		request.setAttribute("MesajdinServlet", "Salut din servlet");
 		
-		List<User> userii = dao.testSelect();
+		List<User> userii = dao.findAll();
 		request.setAttribute("Users", userii);
 		
 
@@ -43,7 +43,7 @@ public class ControllerServletOtherUsers extends HttpServlet {
 			Integer userIdDinUrl = Integer.valueOf(request.getParameter("userId"));
 			System.out.println("PARAMETRU DIN URL PENTRU USER ID: " + userIdDinUrl);
 			//stergem
-			dao.deleteUser(userIdDinUrl);
+			dao.delete(userIdDinUrl);
 			//dam un fel de refresh
 			response.sendRedirect("/BlackjackWeb/ControllerServletOtherUsers");
 		}
