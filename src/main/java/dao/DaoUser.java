@@ -42,8 +42,12 @@ public class DaoUser implements IDao<User>{
 		User userGasit = null;
 		try {
 			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/blackjack", "root", "1234");
-			Statement stmt = conn.createStatement();
-			ResultSet rezultate = stmt.executeQuery("SELECT * FROM users WHERE Name = '"+username+"' and Password = '"+password+"'");
+//			Statement stmt = conn.createStatement();
+			PreparedStatement pst = conn.prepareStatement("SELECT * FROM users WHERE Name = ? AND Password = ?");
+//			ResultSet rezultate = stmt.executeQuery("SELECT * FROM users WHERE Name = '"+username+"' and Password = '"+password+"'");
+			pst.setString(1, username);
+			pst.setString(2, password);
+			ResultSet rezultate = pst.executeQuery();
 			while(rezultate.next()) {
 				User user = new User(); // fiecare rand e un User instance
 				user.setId(rezultate.getInt("Id"));

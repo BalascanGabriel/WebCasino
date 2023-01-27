@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import dao.DaoActivity;
 import model.ActivityEntry;
 
@@ -23,23 +26,24 @@ public class ControllerRestActivity extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<ActivityEntry> result = daoActivity.findAll();
 //		response.getWriter().append(""+ result);
-		String jsonResult = "[";
+//		String jsonResult = "[";
 		
-//		{
-//			"id" : 1,
-//			"user_id" : 1,
-//			"last_login" : "1999-10-10 00:00:00",
-//			"user_ip" : "192.1356.156"
-//		},
+		JSONArray resultArray = new JSONArray();
 		
 		for(ActivityEntry a : result) {
-			jsonResult += "{\"id\" : "+a.getId()+", \"user_id\" : "+a.getUserId()+", \"last_login\" : \""+a.getLastLogin()+"\", \"user_ip\" : \""+a.getIp()+"\"}";
-			if(!(result.indexOf(a) == result.size() - 1)) {
-				jsonResult += ",";
-			}
+			JSONObject activityJson = new JSONObject();
+			activityJson.put("id", a.getId());
+			activityJson.put("user_id", a.getUserId());
+			activityJson.put("last_login", a.getLastLogin());
+			activityJson.put("user_ip", a.getIp());
+			resultArray.put(activityJson);
+//			jsonResult += "{\"id\" : "+a.getId()+", \"user_id\" : "+a.getUserId()+", \"last_login\" : \""+a.getLastLogin()+"\", \"user_ip\" : \""+a.getIp()+"\"}";
+//			if(!(result.indexOf(a) == result.size() - 1)) {
+//				jsonResult += ",";
+//			}
 		}
-		jsonResult += "]";
-		response.getWriter().append(jsonResult);
+//		jsonResult += "]";
+		response.getWriter().append(resultArray.toString());
 	}
 
 	

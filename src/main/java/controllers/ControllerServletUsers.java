@@ -47,6 +47,16 @@ public class ControllerServletUsers extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+		// TODO: daca username sau email sau balance sunt empty => fim trimisi inapoi pe pagina
+		// sa afisam un mesaj de eroare cu "fields cannot be empty" (jquery example)
+		// https://jqueryui.com/dialog/
+		// la refresh nu vrem sa mai apara dialogul
+		
+		// in caz de eroare, daca am completat ceva pe unul dintre field-uri
+		// cand suntem trimisi inapoi la pagina, valorile pe care le-am scris sa apara cum le-am setat
+		// ca pe un site pe care faci register, if something goes wrong, obtii eroare, dar valorile puse anterior
+		// se pastreaza
+		
 		if(request.getParameter("userId")!= null){
 			// am dat click pe link-ul de delete
 			Integer userIdDinUrl = Integer.valueOf(request.getParameter("userId"));
