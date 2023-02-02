@@ -36,6 +36,9 @@ table#tabel-activity {
 	<%
 	List<User> userii = (List<User>) request.getAttribute("USERII"); //dao.testSelect();
 	%>
+	
+	<a href="">Previous</a>
+	<a href="">Next</a>
 
 	<table border="1">
 		<thead>

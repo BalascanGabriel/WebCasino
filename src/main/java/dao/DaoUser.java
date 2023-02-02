@@ -62,6 +62,36 @@ public class DaoUser implements IDao<User>{
 		return userGasit;
 	}
 
+	
+	public List<User> findPage(int pageNumber, int usersPerPage){
+		List<User> userii = new ArrayList<>();
+		try {
+
+			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/blackjack", "root", "1234");
+			Statement stmt = conn.createStatement();
+			
+//			SELECT * FROM users limit 0,3; -- pagina '0'
+//			SELECT * FROM users limit 3,3; -- pagina '1'
+			int firstLimit = pageNumber * usersPerPage;
+			int secondLimitNrUsers = usersPerPage;
+			ResultSet rezultate = stmt.executeQuery(" SELECT * FROM users limit "+firstLimit+","+secondLimitNrUsers);
+			System.out.println("EXECUTING QUERY: " + "SELECT * FROM users limit "+firstLimit+","+secondLimitNrUsers);
+			while (rezultate.next()) {
+//				System.out.println("NAME: " + rezultate.getString("Name"));
+				User user = new User(); // fiecare rand e un User instance
+				user.setId(rezultate.getInt("Id"));
+				user.setEmail(rezultate.getString("Email"));
+				user.setName(rezultate.getString("Name"));
+				user.setBalance(rezultate.getInt("Balance"));
+				userii.add(user);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return userii;
+	}
+	
 	public List<User> findAll() {
 
 		List<User> userii = new ArrayList<>();

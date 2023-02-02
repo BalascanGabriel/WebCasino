@@ -27,7 +27,13 @@ public class ControllerServletUsers extends HttpServlet {
 			throws ServletException, IOException {
 		
 		
-		List<User> userii = dao.findAll();
+		// TODO: next si previous
+		// dorim sa fie mereu 3 pe pagina (maxim)
+		Integer pageNumber = request.getParameter("page-nr") != null ? Integer.valueOf(request.getParameter("page-nr")) : 0;
+		System.out.println("PAGE NUMBER: " + pageNumber);
+		
+		// List<User> userii = dao.findAll();
+		List<User> userii = dao.findPage(pageNumber, 3);
 		if (request.getParameter("sort") != null) {
 			if (request.getParameter("element").equals("id")) {
 				// am dat click pe link => ar trebui sa sortam userii dupa id desc
